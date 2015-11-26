@@ -1,1 +1,620 @@
 // main SASS file
+/*$color-lightBlue: #C7F7FF;
+$color-medBlue: #89C0C9;
+$color-darkBlue: #3a5E63;
+$color-lightBrown: #C9A689;
+$color-darkBrown: #7C593C;
+$color-lightGrey: #d4d4d4;
+$color-darkGrey: #222;*/
+@import 'variables';
+@import 'queries';
+*{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    &:after, &:before{
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+}
+
+html{
+    font-size: 16px;
+    font-family: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif; /* default for whole page */
+    line-height: 1.6;
+}
+h1, h2, h3, h4{
+    font-family: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; /* serif for the headings */
+}
+ul{
+    list-style: none;
+}
+
+/***********************************************
+                SPECIAL
+***********************************************/
+
+.clearfix:after{
+    display:table;
+    clear: both;
+    content: "";
+}
+
+/***********************************************
+                LAYOUT
+***********************************************/
+.bg-header{
+    background-color: #fff;
+    background-color: $color-lightBlue;
+    color: $color-darkGrey;
+    border-bottom:1rem solid $color-medBlue;
+    border-top:1rem solid $color-darkBlue;
+    position: relative;
+    &:after, &:before{
+        content:"";
+        position:absolute;
+        bottom:-1rem;
+        width:30%;
+        height:1rem;
+        background-color: $color-darkBlue;
+    }
+    &:before{
+        left:0;
+    }
+    &:after{
+        right:0;
+    }
+}
+
+.bg-focal{
+    background-color: $color-lightBrown;
+    color: $color-darkBrown;
+}
+
+.bg-content1{
+    background-color: #fff;
+    color: $color-darkGrey;
+}
+
+.bg-content2{
+    background-color: $color-lightBlue;
+    color: $color-darkBlue;
+}
+
+.bg-footer{
+    background-color: #fff;
+    color: $color-lightGrey;
+}
+
+header{
+    width: 400px; /* default */
+    margin: 0 auto;
+    position: relative;
+    
+    @include tablet{
+        width: 700px;
+        margin: 0 auto;
+        min-height: 8rem;
+        &:before, &:after{
+            width: 230px;
+        }
+    };
+    
+    @include desktop{
+        width: 900px;
+        margin: 0 auto;
+        &:before, &:after{
+            width:300px;
+        }
+    };
+    
+    @include large-device{
+        width: 1400px;
+        margin:0 auto;
+        &:before,
+        &:after{
+            width:450px;
+        }
+    };
+    
+    h1{
+        width: 100%;
+        padding: 0 2rem;
+        color: $color-darkBrown;
+        letter-spacing: 0.1rem;
+        
+        @include tablet{
+            width: 100%;
+            color: $color-darkBrown;
+        };
+        
+        @include desktop{
+            width: 100%;
+            color: #3a5E63;
+        };
+        
+        @include large-device{
+            width: 100%;
+            color: #7C593C;
+        };
+        
+        i.fa-lg{
+            display:block;
+            width: 25%;
+            float:left;
+            font-size: 7rem;
+            line-height: 12.7936rem;
+            color: $color-lightBrown;
+            
+            @include tablet{
+                display:inline;
+                color: $color-darkBrown;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            };
+            
+            @include desktop{
+                display:inline;
+                color: #3a5E63;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            };
+            
+            @include large-device{
+                display:inline;
+                color: #7C593C;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
+            };
+            
+            ~ span{
+                float: right;
+                width: 75%;
+                font-size: 3.998rem;
+                /**
+                2 lines of 3.998 * 1.6 = 12.7936
+                **/
+                padding-left: 1rem;
+                text-align: right;
+                
+                @include tablet{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    /**
+                    1 lines of 3.998 * 1.6 = 6.3968
+                    **/
+                    text-align: left;
+                };
+                
+                @include desktop{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    /**
+                    1 lines of 3.998 * 1.6 = 6.3968
+                    **/
+                    text-align: left;
+                };
+                
+                @include large-device{
+                    float: none;
+                    letter-spacing: 0.25rem;
+                    font-size: 3.998rem;
+                    /**
+                    1 lines of 3.998 * 1.6 = 6.3968
+                    **/
+                    text-align: left;
+                };
+            }
+        }
+    }
+}
+.sectionsFooter{
+    @include tablet{
+        width: 700px !important;
+        margin: 0 auto !important;
+    };
+    
+    @include desktop{
+        width: 900px !important;
+        margin: 0 auto !important;
+    };
+    
+    @include large-device{
+        width: 1400px !important;
+        margin: 0 auto !important;
+    };
+}
+section{
+    &.focal{
+        width: 400px;
+        margin: 0 auto;
+        @extend .sectionsFooter;
+        h2{
+            font-size: 1.999rem;
+            line-height: 1.2;
+            padding: 2rem 2rem 1rem 2rem;
+            
+            @include desktop{
+                width: 600px; 
+                margin: 0 auto;
+            };
+            
+            @include large-device{
+                font-size: 3.998rem;
+                width: 600px; 
+                margin: 0 auto;
+            };
+        }
+        
+        .author{
+            font-size: 1rem;
+            padding: 0.2rem 2rem 2rem;
+            
+            @include desktop{
+                width: 600px;
+                margin: 0 auto;
+            }
+            
+            @include large-device{
+                width: 600px; 
+                margin: 0 auto;
+            };
+        }
+    }
+    
+    &.content1{
+        padding: 2rem 0;
+        @extend .sectionsFooter;
+        
+        .col-3{
+            @include desktop{
+                float:left;
+                width: 30%;
+                margin-left: 5%;
+                &:first-child{
+                    margin-left: 0;
+                }
+            };
+            
+            @include large-device{
+                float:left;
+                width: 30%;
+                margin-left: 5%;
+                &:first-child{
+                    margin-left: 0;
+                }
+            };
+            
+        }
+        
+        h3{
+            font-size:1.999rem;
+            padding: 0.2rem 2rem 2rem;
+            
+            @include desktop{
+                font-size: 1.999rem;
+                font-weight: 100;
+            };
+            
+            @include large-device{
+                font-size: 2.827rem;
+                font-weight: 100;
+            };
+            
+            .fa-2x{
+                @include desktop{
+                    font-size: 1.999rem;
+                    padding-right: 1rem;
+                };
+                
+                @include large-device{
+                    font-size: 2.827rem;
+                    padding-right: 1rem;
+                    vertical-align: middle;
+                };
+                
+            }
+            
+            i{
+                vertical-align:middle;
+                padding-right: 2rem;
+            }
+        }
+        p{
+            font-size: 1.414rem;
+            padding: 0.5rem 2rem 2rem;
+        }
+    }
+    &.content2{
+        padding: 2rem 0;
+        @extend .sectionsFooter;
+        
+        .col-4{
+            @include tablet{
+                width:50%;
+                float:left;
+            };
+            
+            @include desktop{
+                width:22%;
+                margin-left: 4%;
+                float:left;
+                &:first-child{
+                    margin-left: 0;
+                }
+            };
+            
+            @include large-device{
+                width:22%;
+                margin-left: 4%;
+                float:left;
+                &:first-child{
+                    margin-left: 0;
+                }
+            };
+        }
+        
+        h4{
+            font-size: 1.999rem;
+            padding: 1rem 2rem 0rem;
+            @include tablet{
+                font-size: 1.414rem;
+            };
+            
+            @include desktop{
+                font-size: 1.414rem;
+            };
+            
+            @include large-device{
+                font-size: 1.999rem;
+            };
+        }
+        
+        li{
+            padding: 0.5rem 2rem;
+            font-size: 1.414rem;
+            @include tablet{
+                font-size: 1.414rem;
+            };
+            
+            @include desktop{
+                font-size: 1.414rem;
+            };
+            
+            @include large-device{
+                font-size: 1.999rem;
+            }
+        }
+        p{
+            font-size: 1.414rem;
+            padding: 0.5rem 2rem 1rem;
+            @include desktop{
+                font-size: 1rem;
+                font-weight: 400;
+            };
+            
+            @include large-device{
+                font-size: 1.414rem;
+                font-weight: 400;
+            };
+        }
+    }
+}
+
+.row{
+    clear: both;
+}
+
+
+
+
+/***********************************************
+                NAVIGATION
+***********************************************/
+header{
+    nav{
+        padding:2rem 0;
+        clear: both;
+        width: 100%;
+        
+        @include tablet{
+            position: static;
+            clear:both;
+            width: 100%;
+            padding: 0;
+        };
+        
+        @include desktop{
+            position: static;
+            clear:both;
+            width: 100%;
+            padding: 0;
+        };
+        
+        @include large-device{
+                position: static;
+                clear:both;
+                width: 100%;
+                padding: 0;
+            };
+        >ul li{
+            width:100%;
+            float: none;
+            
+            @include tablet{
+                width:20%;
+                float: left;
+            };
+            
+            @include desktop{
+                width:20%;
+                float: left;
+                background-color: #fff;
+                &:first-child a{
+                    border-left:none;
+                }
+            };
+            
+            @include large-device{
+                width:20%;
+                float: left;
+                background-color: #fff;
+                &:first-child a{
+                    border-left:none;
+                }
+            };
+            
+            
+        }
+        >ul>li>a{
+            display:block;
+            text-align: center;
+            text-decoration: none;
+            color: $color-darkGrey;    
+            font-size: 1.414rem;
+            letter-spacing: 0.25rem;
+            border:1px solid $color-lightGrey; 
+            border-bottom: none;
+            padding:1.0rem 2rem;
+            line-height: 1;
+            background-color: #fff;
+            
+            @include tablet{
+                font-size: 1rem;
+                line-height: 2rem;
+                min-height: 6rem;
+                border:none;
+                border-left:1px solid #d4d4d4; 
+                padding:1.0rem;
+                background-color: #fff;
+                
+                &:last-child{
+                    border-right:1px solid #d4d4d4;
+                }
+            };
+            
+            @include desktop{
+                font-size: 1rem;
+                line-height: 2rem;
+                min-height: 2rem;
+                border:none;
+                border-left:1px solid #d4d4d4; 
+                padding: 0 1.0rem;
+                margin: 1.0rem 0;
+                background-color: #fff;
+            };
+            
+            @include large-device{
+                font-size: 1.414rem;
+                line-height: 2rem;
+                min-height: 2rem;
+                border:none;
+                border-left:1px solid #d4d4d4; 
+                padding:0 1.0rem;
+                margin:1.0rem 0;
+                background-color: #fff;
+            };
+            &:hover{
+                font-weight: 700;
+                color: $color-darkBrown;
+            }
+        }
+    }
+}
+
+/***********************************************
+                FOOTER
+***********************************************/
+footer{
+    padding:2rem 0;
+    @extend .sectionsFooter;
+    
+    .col-2{
+        width:50%;
+        float:left;
+        padding-bottom: 2rem;
+        border-left:1px solid $color-darkBlue;
+        margin-bottom: 2rem;
+        &:first-child{
+            border-left: 0;
+        }
+        &:last-child{
+            @include tablet{
+                unicode-bidi: bidi-override;
+                direction: rtl;
+            };
+        }
+    }
+    
+    h4{
+        font-size: 1.414rem;
+        padding: 0.5rem 2rem;
+        color: $color-darkBrown;
+        &[lang=de]{
+           display:block;
+            @include tablet{
+                display: none;
+            };
+            @include desktop{
+                display: none;
+            }
+            @include large-device{
+                display: none;
+            };
+        }
+        &[lang=en]{
+            display: none;
+            @include large-device{
+                display: block;
+            };
+        }
+        &[lang=ar]{
+            display: none;
+            @include tablet{
+                display: block;
+            };
+        }
+        &[lang=ru]{
+            display: none;
+            @include desktop{
+                display: block;
+            };
+        }
+    }
+    p{
+        font-size: 1rem;
+        padding: 0.5rem 2rem;
+        color: $color-darkGrey;
+        
+        @include large-device{
+            font-size: 1.414rem;
+            letter-spacing: 0.2rem;
+        };
+        &:last-child{
+            color: #d4d4d4;
+        }
+    }
+    .fa-circle{
+        color: $color-darkGrey;
+        @include tablet{
+            color: #89C0C9;
+        };
+        
+        @include desktop{
+            color: #C9A689;
+        };
+        
+        @include large-device{
+            color: #89C0C9;
+        };
+    }
+}
