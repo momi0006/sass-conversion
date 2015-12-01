@@ -1,0 +1,38 @@
+@mixin fa-lg{
+    display:inline;
+    vertical-align:baseline;
+    float:none;
+    font-size: 4rem;
+    line-height: 6.3968rem;
+}
+@mixin h1Span{
+    float: none;
+    letter-spacing: 0.25rem;
+    text-align: left;
+}
+@mixin navMenu{
+    position: static;
+    clear:both;
+    width: 100%;
+    padding: 0;
+}
+@mixin navUlLi($width, $float){
+    width: $width;
+    float: $float;
+}
+@mixin equalSpaced( $num_of_cols, $spacing, $width){
+  width: ( $width - ( $spacing * ($num_of_cols - 1) ) ) / $num_of_cols;
+  margin-left: $spacing;
+  float: left;
+  &:first-child{
+    margin-left: 0;
+  }
+}
+@mixin ulLiA($fontSize, $lineHeight, $minHeight, $border, $borderLeft, $padding){
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    min-height: $minHeight;
+    border: $border;
+    border-left: $borderLeft;
+    padding: $padding;
+}
